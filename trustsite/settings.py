@@ -178,7 +178,7 @@ LOGIN_REDIRECT_URL = '/profile/'
 LOGOUT_REDIRECT_URL = '/'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / os.getenv('MEDIA_ROOT', 'media')
+MEDIA_ROOT = Path(os.getenv('MEDIA_ROOT', str(BASE_DIR / 'media')))
 
 
 # HTTPS and proxy settings for the hosted environment

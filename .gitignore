@@ -38,9 +38,13 @@ db.sqlite3-journal
 datadump.json
 staticfiles/
 
+.railway/railway.py
+
 # Local tooling
 .agents/
 backup_before_redesign/
+
+node_modules/
 
 # IDE & OS
 .vscode/
