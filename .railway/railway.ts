@@ -7,7 +7,7 @@ export default defineRailway(() => {
   const onlineshop = service("onlineshop", {
     source: github("khanfini/onlineshop", { branch: "main", upstreamUrl: "https://github.com/khanfini/onlineshop" }),
     build: { buildEnvironment: "V3", builder: "NIXPACKS", buildCommand: "python manage.py collectstatic --noinput" },
-    start: "mkdir -p /media/products && cp -an /app/media/products/. /media/products/ && gunicorn trustsite.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 120",
+    start: "mkdir -p /media/products && cp -a --update=none /app/media/products/. /media/products/ && gunicorn trustsite.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 120",
     healthcheck: "/health/",
     healthcheckTimeout: 300,
     preDeploy: "python manage.py migrate --noinput",
