@@ -10,7 +10,7 @@ export default defineRailway(() => {
     start: "gunicorn trustsite.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 120",
     healthcheck: "/health/",
     healthcheckTimeout: 300,
-    preDeploy: "python manage.py migrate --noinput && mkdir -p /media/products && cp -a /app/media/products/. /media/products/ && ls -ld /media/products",
+    preDeploy: "python manage.py migrate --noinput && mkdir -p /media/products && cp -av /app/media/products/. /media/products/ && ls -l /media/products/argan_elixir_luxury.jpg",
     volumeMounts: { "/media": volume("onlineshop-volume", { region: "iad", sizeMB: 500 }) },
     replicas: { "iad": 1 },
   });
