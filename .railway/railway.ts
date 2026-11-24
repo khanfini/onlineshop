@@ -10,7 +10,7 @@ export default defineRailway(() => {
     start: "gunicorn trustsite.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 120",
     healthcheck: "/health/",
     healthcheckTimeout: 300,
-    preDeploy: "python manage.py migrate --noinput && cp -r media/products /media/",
+    preDeploy: "python manage.py migrate --noinput && cp -a /app/media/products/. /media/products/",
     volumeMounts: { "/media": volume("onlineshop-volume", { region: "iad", sizeMB: 500 }) },
     replicas: { "iad": 1 },
   });
