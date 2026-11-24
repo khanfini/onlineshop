@@ -1,0 +1,231 @@
+{% load static storefront_extras %}
+<section class="fig-orchard-section" aria-labelledby="orchard-title" data-fig-orchard-stage data-reveal>
+  <div class="orchard-ambient" aria-hidden="true">
+    <div class="orchard-glow orchard-glow--sun"></div>
+    <div class="orchard-glow orchard-glow--rose"></div>
+    <div class="orchard-leaf-silhouette"></div>
+  </div>
+
+  <div class="container orchard-container">
+    <div class="orchard-header">
+      <div class="orchard-badge">
+        <span class="orchard-badge__icon">🍃</span>
+        <span>FIG-ORCHARD COLLECTION • کالکشن باغ انجیر</span>
+      </div>
+      <h2 id="orchard-title" class="orchard-title">طنین رایحه در باغ‌های انجیر مدیترانه</h2>
+      <p class="orchard-subtitle">از دهانه بطری کریستالی تراست، ابری ابریشمی به گردش درمی‌آید و هر رایحه با نت‌های اصیل هرم بویایی خود پیش روی شما جاری می‌شود.</p>
+
+      <!-- Orbiting Collection Selector -->
+      <div class="orbit-selectors" role="tablist" aria-label="انتخاب رایحه">
+        <button type="button" class="orbit-pill is-active" data-orbit-index="0" role="tab" aria-selected="true">
+          <span class="orbit-pill__dot"></span>
+          <span class="orbit-pill__title">۰۱. لونا (عطر انجیر سیاه)</span>
+        </button>
+        <button type="button" class="orbit-pill" data-orbit-index="1" role="tab" aria-selected="false">
+          <span class="orbit-pill__dot"></span>
+          <span class="orbit-pill__title">۰۲. الکسیر (روغن آرگان و بهارنارنج)</span>
+        </button>
+        <button type="button" class="orbit-pill" data-orbit-index="2" role="tab" aria-selected="false">
+          <span class="orbit-pill__dot"></span>
+          <span class="orbit-pill__title">۰۳. هیدرا (کرم ابریشمی آلوئه‌ورا)</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Pinned Showcase Stage -->
+    <div class="orchard-stage">
+      <!-- Left: The White Morphing Fluid Blob Canvas -->
+      <div class="orchard-visual-portal">
+        <div class="white-fluid-blob" aria-hidden="true">
+          <div class="blob-inner-glow"></div>
+        </div>
+
+        <!-- Orbiting Satellite Rings -->
+        <div class="orbit-ring orbit-ring--outer" aria-hidden="true">
+          <div class="orbit-planet planet-1">✨</div>
+          <div class="orbit-planet planet-2">🍃</div>
+          <div class="orbit-planet planet-3">🌸</div>
+        </div>
+
+        <!-- Product Image Stage Layers -->
+        <div class="orchard-product-slides">
+          <div class="orchard-slide is-active" data-slide="0">
+            <div class="slide-frame">
+              <img src="{% static 'products/images/fig_perfume_hero.jpg' %}" alt="عطر زنانه لونا در باغ انجیر" class="slide-img" width="650" height="750" loading="lazy">
+              <div class="slide-aura"></div>
+            </div>
+          </div>
+          <div class="orchard-slide" data-slide="1">
+            <div class="slide-frame">
+              <img src="{% static 'products/images/argan_elixir_luxury.jpg' %}" alt="اکسیر روغن آرگان خالص" class="slide-img" width="650" height="750" loading="lazy">
+              <div class="slide-aura"></div>
+            </div>
+          </div>
+          <div class="orchard-slide" data-slide="2">
+            <div class="slide-frame">
+              <img src="{% static 'products/images/hydra_cream_luxury.jpg' %}" alt="کرم ابریشمی آبرسان تراست" class="slide-img" width="650" height="750" loading="lazy">
+              <div class="slide-aura"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Streaming Scent Details & Notes -->
+      <div class="orchard-scent-stream">
+        <!-- Scent 0: Luna -->
+        <article class="scent-card is-active" data-scent="0">
+          <div class="scent-family-badge">
+            <span class="family-icon">🌿</span>
+            <span>خانواده بویایی: میوه‌ای، سبز و چوبی اطلسی</span>
+          </div>
+          <h3 class="scent-title">TRUST AURA LUNA</h3>
+          <p class="scent-origin">ادوپرفیوم ۱۰۰ میل بانوان • رایحه اختصاصی باغ انجیر</p>
+
+          <!-- Olfactory Pyramid Notes -->
+          <div class="olfactory-pyramid">
+            <div class="pyramid-level">
+              <div class="level-header">
+                <span class="level-tag">نت آغازین (Top Notes)</span>
+                <span class="level-desc">حس نخستین اسپری</span>
+              </div>
+              <p class="level-ingredients">برگ انجیر وحشی، ترنج کالابریا، ماندارین تازه ایتالیایی</p>
+            </div>
+            <div class="pyramid-level">
+              <div class="level-header">
+                <span class="level-tag level-tag--heart">نت میانی (Heart Notes)</span>
+                <span class="level-desc">روح ماندگار عطر</span>
+              </div>
+              <p class="level-ingredients">شیره انجیر سیاه، گل یاسمن مراکشی، زنبق درخشان</p>
+            </div>
+            <div class="pyramid-level">
+              <div class="level-header">
+                <span class="level-tag level-tag--base">نت پایه (Base Notes)</span>
+                <span class="level-desc">خط بوی پایدار</span>
+              </div>
+              <p class="level-ingredients">چوب سدروس اطلس، کهربای گرم خورشیدی، مشک سفید مخملی</p>
+            </div>
+          </div>
+
+          <div class="scent-accords">
+            <span class="accord-chip">طبع: معتدل و شیرین ملایم</span>
+            <span class="accord-chip">ماندگاری: ۲۴ ساعت</span>
+            <span class="accord-chip">فصل: بهار، تابستان و پاییز</span>
+          </div>
+
+          <div class="scent-purchase-row">
+            <div class="scent-price">
+              <span class="price-val">۵,۰۰۰,۰۰۰</span>
+              <span class="price-unit">تومان</span>
+            </div>
+            <a class="button button--primary button--add-to-bag" href="/product/tr-fom-znnh-trust-aura-mdl-luna/">
+              <span>بررسی و افزودن به سبد</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 4h2l2 11h11l2-8H6M9 20h.01M17 20h.01"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Scent 1: Argan Elixir -->
+        <article class="scent-card" data-scent="1">
+          <div class="scent-family-badge">
+            <span class="family-icon">✨</span>
+            <span>خانواده مراقبتی: اکسیر تغذیه‌بخش، معطر به بهارنارنج</span>
+          </div>
+          <h3 class="scent-title">TRUST ARGAN ELIXIR</h3>
+          <p class="scent-origin">اکسیر خالص آرگان ۵۰ میل • غنی‌شده با ویتامین E و امگا</p>
+
+          <div class="olfactory-pyramid">
+            <div class="pyramid-level">
+              <div class="level-header">
+                <span class="level-tag">رایحه اولیه</span>
+                <span class="level-desc">حس شادابی طبیعی</span>
+              </div>
+              <p class="level-ingredients">شکوفه بهارنارنج تازه (Neroli)، مرکبات مدیترانه‌ای</p>
+            </div>
+            <div class="pyramid-level">
+              <div class="level-header">
+                <span class="level-tag level-tag--heart">هسته فعال درمانی</span>
+                <span class="level-desc">تغذیه عمیق پوست</span>
+              </div>
+              <p class="level-ingredients">۱۰۰٪ روغن آرگان خالص پرس سرد ارگانیک مراکش</p>
+            </div>
+            <div class="pyramid-level">
+              <div class="level-header">
+                <span class="level-tag level-tag--base">رایحه ماندگار</span>
+                <span class="level-desc">لطافت ابریشمی</span>
+              </div>
+              <p class="level-ingredients">وانیل ملایم ماداگاسکار، چوب صندل کرمی</p>
+            </div>
+          </div>
+
+          <div class="scent-accords">
+            <span class="accord-chip">مناسب: انواع پوست و مو</span>
+            <span class="accord-chip">جذب: سریع بدون چربی</span>
+            <span class="accord-chip">اثر: درخشش و ترمیم بافت</span>
+          </div>
+
+          <div class="scent-purchase-row">
+            <div class="scent-price">
+              <span class="price-val">۵۵۰,۰۰۰</span>
+              <span class="price-unit">تومان</span>
+            </div>
+            <a class="button button--primary button--add-to-bag" href="/product/roghn-rn-ost/">
+              <span>بررسی و افزودن به سبد</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 4h2l2 11h11l2-8H6M9 20h.01M17 20h.01"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Scent 2: Hydra Silk Cream -->
+        <article class="scent-card" data-scent="2">
+          <div class="scent-family-badge">
+            <span class="family-icon">💧</span>
+            <span>خانواده مراقبتی: هیدراتاسیون ۲۴ ساعته با بافت مخملی</span>
+          </div>
+          <h3 class="scent-title">TRUST HYDRA SILK</h3>
+          <p class="scent-origin">کرم آبرسان عمیق پوست ۶۰ میل • نکتار گیاهی و اسید هیالورونیک</p>
+
+          <div class="olfactory-pyramid">
+            <div class="pyramid-level">
+              <div class="level-header">
+                <span class="level-tag">طراوت اولیه</span>
+                <span class="level-desc">حس خنکی و احیا</span>
+              </div>
+              <p class="level-ingredients">شبنم بامبو، خیار طراوت‌بخش و نعناع وحشی</p>
+            </div>
+            <div class="pyramid-level">
+              <div class="level-header">
+                <span class="level-tag level-tag--heart">ترکیبات فعال آبرسان</span>
+                <span class="level-desc">آبرسانی به لایه‌های عمقی</span>
+              </div>
+              <p class="level-ingredients">اسید هیالورونیک چندمولکولی، ژل خالص آلوئه‌ورا</p>
+            </div>
+            <div class="pyramid-level">
+              <div class="level-header">
+                <span class="level-tag level-tag--base">رایحه آرامش‌بخش</span>
+                <span class="level-desc">حس تمیزی و آرامش</span>
+              </div>
+              <p class="level-ingredients">چای سفید شکوفه‌دار، گل ابریشم، پودر برنج</p>
+            </div>
+          </div>
+
+          <div class="scent-accords">
+            <span class="accord-chip">مناسب: پوست خشک و معمولی</span>
+            <span class="accord-chip">ماندگاری رطوبت: ۴۸ ساعت</span>
+            <span class="accord-chip">فاقد پارابن و الکل</span>
+          </div>
+
+          <div class="scent-purchase-row">
+            <div class="scent-price">
+              <span class="price-val">۲,۰۰۰,۰۰۰</span>
+              <span class="price-unit">تومان</span>
+            </div>
+            <a class="button button--primary button--add-to-bag" href="/product/rm-brsn-ost-khsh-o-nrml/">
+              <span>بررسی و افزودن به سبد</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 4h2l2 11h11l2-8H6M9 20h.01M17 20h.01"/></svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

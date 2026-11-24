@@ -1,0 +1,171 @@
+{% load static storefront_extras %}
+<section class="bh" id="top" aria-labelledby="bh-title" data-bh>
+  <svg class="bh-filters" width="0" height="0" aria-hidden="true" focusable="false">
+    <filter id="bh-ink-duotone" color-interpolation-filters="sRGB">
+      <feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0"/>
+      <feComponentTransfer>
+        <feFuncR type="table" tableValues="0.169 0.29 0.659 0.984"/>
+        <feFuncG type="table" tableValues="0.063 0.114 0.137 0.957"/>
+        <feFuncB type="table" tableValues="0.133 0.227 0.290 0.949"/>
+      </feComponentTransfer>
+    </filter>
+    <filter id="bh-ink-outline">
+      <feMorphology in="SourceAlpha" operator="erode" radius="2" result="inside"/>
+      <feComposite in="SourceGraphic" in2="inside" operator="out"/>
+    </filter>
+  </svg>
+
+  <div class="bh-splash" aria-hidden="true" data-bh-splash hidden>
+    <p class="bh-splash-roles">Fragrance <i>/</i> Skincare <i>/</i> Makeup</p>
+    <svg class="bh-splash-name" viewBox="0 0 1000 460">
+      <defs>
+        <clipPath id="bh-wipe"><rect class="bh-splash-wipe" x="0" y="0" width="1000" height="460"/></clipPath>
+        <clipPath id="bh-flood"><circle class="bh-splash-flood" cx="1000" cy="230" r="70"/></clipPath>
+      </defs>
+      <g clip-path="url(#bh-wipe)" filter="url(#bh-ink-outline)" text-anchor="middle">
+        <text x="500" y="230" font-size="250" class="bh-splash-first">Trust</text>
+        <text x="500" y="420" font-size="190" class="bh-splash-last">Beauty</text>
+      </g>
+      <g clip-path="url(#bh-flood)" text-anchor="middle">
+        <text x="500" y="230" font-size="250" class="bh-splash-first">Trust</text>
+        <text x="500" y="420" font-size="190" class="bh-splash-last">Beauty</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="bh-cursor" aria-hidden="true" data-bh-cursor>
+    <span class="bh-cursor-trail"><span class="bh-cursor-ring"></span><span class="bh-cursor-disc">مشاهده</span></span>
+    <span class="bh-cursor-pos"><span class="bh-cursor-dot"></span></span>
+  </div>
+
+  <div class="container bh-stage">
+    <div class="bh-canvas" data-bh-canvas>
+      <div class="bh-figure">
+        <div class="bh-layer bh-layer-name bh-layer-base">
+          <h1 class="bh-name" id="bh-title">
+            <span class="sr-only">Trust Beauty; fragrance, skincare and makeup for women</span>
+            <span class="bh-name-first" data-bh-depth="first" aria-hidden="true"><span class="bh-word" data-bh-word="below">Trust</span></span>
+            <span class="bh-name-last" data-bh-depth="last" aria-hidden="true"><span class="bh-word" data-bh-word="above">Beauty</span></span>
+          </h1>
+        </div>
+        <div class="bh-layer bh-layer-name bh-layer-ink" aria-hidden="true">
+          <div class="bh-name">
+            <span class="bh-name-first bh-ink-first" data-bh-depth="first">Trust</span>
+            <span class="bh-name-last bh-ink-last" data-bh-depth="last">Beauty</span>
+          </div>
+        </div>
+        <div class="bh-layer bh-layer-portrait bh-layer-base">
+          <!-- Watermark/background wordmark behind the portrait -->
+          <div class="bh-portrait-watermark" aria-hidden="true">Trust Beauty</div>
+          <img class="bh-portrait" src="{% get_media_prefix %}products/Screenshot_۲۰۲۵۰۸۱۵_۱۹۲۱۱۶_Instagram.jpg" alt="A woman with radiant skin after her daily care routine" width="896" height="1200" fetchpriority="high" decoding="async" data-bh-depth="portrait" data-bh-reveal="portrait">
+        </div>
+        <div class="bh-layer bh-layer-portrait bh-layer-ink" aria-hidden="true">
+          <div class="bh-portrait-watermark" aria-hidden="true">Trust Beauty</div>
+          <img class="bh-portrait bh-ink-portrait" src="{% get_media_prefix %}products/Screenshot_۲۰۲۵۰۸۱۵_۱۹۲۱۱۶_Instagram.jpg" alt="" width="896" height="1200" decoding="async" data-bh-depth="portrait">
+        </div>
+      </div>
+
+      <div class="bh-intro">
+        <p class="bh-intro-roles" data-bh-reveal="written" style="--d:.8s">عطر <i aria-hidden="true">/</i> مراقبت پوست <i aria-hidden="true">/</i> آرایش</p>
+        <p class="bh-intro-headline">
+          <span data-bh-reveal="written" style="--d:.9s">هر روز،</span>
+          <span data-bh-reveal="written" style="--d:.99s">کمی بیشتر</span>
+          <span data-bh-reveal="written" style="--d:1.08s">برای خودت.</span>
+        </p>
+        <hr class="bh-intro-rule" data-bh-reveal="rule" style="--d:1.25s">
+        <p class="bh-intro-description" data-bh-reveal="fade" style="--d:1.35s">محصولاتی که روتین روزانه‌تان را کامل می‌کنند؛ با قیمت روشن و پرداخت وقتی سفارش به دستتان رسید.</p>
+        <div class="bh-intro-actions" data-bh-reveal="fade" style="--d:1.45s">
+          <a class="bh-cta" href="{% url 'product_list' %}"><span class="bh-cta-label">دیدن محصولات</span><span class="bh-cta-mark" aria-hidden="true"><svg class="bh-cta-arrow bh-cta-out" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><svg class="bh-cta-arrow bh-cta-in" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span></a>
+        </div>
+      </div>
+
+      <section class="bh-pad" aria-label="یادداشتی برای فردا" data-bh-reveal="pad" style="--d:.7s">
+        <p class="sr-only">فردای عزیز، پوستم را با مراقبتی آرام و هر روزه همراهی می‌کنم.</p>
+        <div class="bh-pad-inner" aria-hidden="true" data-bh-letter>
+          <div class="bh-letter-sheet" data-bh-sheet>
+            <p class="bh-letter-eyebrow">یادداشتی برای فردا</p>
+            <span class="bh-letter-stamp" data-bh-stamp>قول<br>امروز</span>
+            <p class="bh-letter-greeting">فردای عزیز،</p>
+            <p class="bh-letter-field"><span data-bh-typed></span><span class="bh-letter-caret" data-bh-caret></span></p>
+            <p class="bh-letter-meta">یادداشت <span data-bh-letter-count>۰۱ / ۰۴</span></p>
+          </div>
+          <div class="bh-letter-envelope-view" data-bh-envelope hidden>
+            <p class="bh-letter-eyebrow">مهر و موم شد · <span data-bh-tomorrow></span></p>
+            <span class="bh-envelope">
+              <span class="bh-envelope-letter"></span>
+              <span class="bh-envelope-side bh-envelope-left"></span>
+              <span class="bh-envelope-side bh-envelope-right"></span>
+              <span class="bh-envelope-bottom"></span>
+              <span class="bh-envelope-flap"><span class="bh-envelope-flap-shape"></span></span>
+              <span class="bh-wax-seal">ت</span>
+              <span class="bh-postmark"><span>فردا</span><span class="bh-postmark-date" data-bh-tomorrow></span></span>
+            </span>
+          </div>
+        </div>
+        <template data-bh-message>پوستم را با مراقبتی آرام و هر روزه همراهی می‌کنم.</template>
+        <template data-bh-message>امروز، ده دقیقه فقط برای خودم کنار می‌گذارم.</template>
+        <template data-bh-message>ضدآفتاب را حتی در روزهای ابری فراموش نمی‌کنم.</template>
+        <template data-bh-message>انتخاب‌هایم را آگاهانه و به اندازه نیازم می‌خرم.</template>
+      </section>
+      {% if hero_showcase %}
+      <figure class="bh-book" data-bh-book>
+        <button type="button" class="bh-book-frame" aria-expanded="false" data-bh-book-button data-bh-reveal="book" style="--d:.6s">
+          <span class="bh-book-stage" aria-hidden="true">
+            <span class="bh-book-shadow" data-bh-book-shadow></span>
+            {% for slide in hero_showcase %}
+            <span class="bh-book-slot{% if forloop.first %} is-active{% endif %}" data-bh-slot
+              data-label="{% if slide.product %}{% if slide.product.is_featured %}انتخاب ویژه{% else %}تازه رسیده{% endif %}{% else %}از ویترین ما{% endif %}"
+              data-topics="{% if slide.product %}{{ slide.product.category.name|default:'مراقبت' }}{% if slide.product.brand %} / {{ slide.product.brand.name }}{% endif %}{% else %}عطر / مراقبت / آرایش{% endif %}"
+              data-title="{% if slide.product %}{{ slide.product.name }}{% else %}ویترین تراست بیوتی{% endif %}"
+              data-href="{% if slide.product %}{{ slide.product.get_absolute_url }}{% else %}{% url 'product_list' %}{% endif %}">
+              <span class="bh-book-3d">
+                <span class="bh-book-back"></span>
+                <span class="bh-book-edge"></span>
+                <span class="bh-book-spine"><span>{% if slide.product and slide.product.brand %}{{ slide.product.brand.name }}{% else %}تراست بیوتی{% endif %}</span></span>
+                <span class="bh-book-page">
+                  {% if slide.product %}
+                  <span class="bh-book-page-chapter">{{ slide.product.category.name|default:'محصول' }}</span>
+                  <span class="bh-book-page-price">{{ slide.product.price|toman }} <small>تومان</small></span>
+                  <span class="bh-book-page-text">{{ slide.product.descriptions|striptags|truncatewords:14|default:'جزئیات کامل در صفحه محصول.' }}</span>
+                  {% else %}
+                  <span class="bh-book-page-chapter">ویترین</span>
+                  <span class="bh-book-page-text">انتخاب‌های تازه را در فروشگاه ببینید.</span>
+                  {% endif %}
+                </span>
+                <span class="bh-book-hinge">
+                  <span class="bh-book-cover">
+                    <span class="bh-book-cover-front">
+                      <img class="bh-book-art" src="{{ slide.image }}" alt="" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" decoding="async">
+                      <span class="bh-book-byline">تراست بیوتی</span>
+                    </span>
+                    <span class="bh-book-cover-inside">
+                      <span class="bh-book-page-chapter">{% if slide.product %}{{ slide.product.brand.name|default:'تراست بیوتی' }}{% else %}تراست بیوتی{% endif %}</span>
+                      <span class="bh-book-inside-title">{% if slide.product %}{{ slide.product.name|truncatewords:4 }}{% else %}ویترین ما{% endif %}</span>
+                    </span>
+                  </span>
+                </span>
+              </span>
+            </span>
+            {% endfor %}
+          </span>
+          <span class="sr-only" data-bh-book-name>{% with s=hero_showcase.0 %}{% if s.product %}{{ s.product.name }}{% else %}ویترین تراست بیوتی{% endif %}{% endwith %}</span>
+        </button>
+        <figcaption class="bh-book-caption" data-bh-reveal="fade" style="--d:1.05s">
+          <span class="bh-book-label" data-bh-book-label></span>
+          <span class="bh-book-topics" data-bh-book-topics></span>
+          <a class="bh-book-arrow" href="{% url 'product_list' %}" data-bh-book-link aria-label="مشاهده محصول"><span class="bh-cta-mark bh-cta-diagonal"><svg class="bh-cta-arrow bh-cta-out" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 7 7 17M7 8v9h9"/></svg><svg class="bh-cta-arrow bh-cta-in" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 7 7 17M7 8v9h9"/></svg></span></a>
+        </figcaption>
+        <p class="sr-only" aria-live="polite" data-bh-book-live></p>
+      </figure>
+      {% endif %}
+
+      <ul class="bh-socials" aria-label="میانبرهای فروشگاه" data-bh-reveal="fade" style="--d:1.15s">
+        <li><a class="bh-link" href="{% url 'product_list' %}?sort=featured">منتخب‌ها</a></li>
+        <li aria-hidden="true">/</li>
+        <li><a class="bh-link" href="{% url 'product_list' %}?discount=1">تخفیف‌دارها</a></li>
+        <li aria-hidden="true">/</li>
+        <li><a class="bh-link" href="{% url 'brand_list' %}">برندها</a></li>
+      </ul>
+    </div>
+  </div>
+</section>

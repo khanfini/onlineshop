@@ -1,0 +1,29 @@
+{% load storefront_extras %}
+<article class="product-card">
+  <a class="product-card__media{% if not product.image %} product-card__media--placeholder{% endif %}" href="{{ product.get_absolute_url }}" tabindex="-1" aria-hidden="true">
+    {% if product.image %}<img src="{{ product.image.url }}" alt="" width="640" height="800" loading="lazy" decoding="async">{% else %}<svg viewBox="0 0 24 24"><path d="M9 3h6v4H9zM7 7h10v14H7z"/></svg>{% endif %}
+    <span class="product-card__badges">{% if product.discount_percent %}<span class="status-badge status-badge--sale">{{ product.discount_percent|persian_number }}٪ تخفیف</span>{% elif product.is_featured %}<span class="status-badge">منتخب</span>{% endif %}</span>
+  </a>
+  {% if product.is_in_stock %}
+    {% if product.variant_count %}
+    <div class="product-card__quick"><a class="button button--small" href="{{ product.get_absolute_url }}">انتخاب گزینه</a></div>
+    {% else %}
+    <form class="product-card__quick" method="post" action="{% url 'add_to_cart' %}" data-quick-add>
+      {% csrf_token %}
+      <input type="hidden" name="product_id" value="{{ product.pk }}">
+      <input type="hidden" name="quantity" value="1">
+      <input type="hidden" name="next" value="{{ request.get_full_path }}">
+      <button class="button button--small" type="submit">افزودن به سبد</button>
+    </form>
+    {% endif %}
+  {% endif %}
+  {% if product.brand %}<p class="product-card__brand">{{ product.brand.name }}</p>{% elif product.category %}<p class="product-card__brand">{{ product.category.name }}</p>{% endif %}
+  <h3 class="product-card__title"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h3>
+  <div class="product-card__bottom">
+    <div class="price{% if product.discount_percent %} price--sale{% endif %}">
+      <span class="price__value">{{ product.price|toman }}</span><span class="price__currency">تومان</span>
+      {% if product.discount_percent %}<del class="price__old">{{ product.compare_at_price|toman }}</del>{% endif %}
+    </div>
+    {% if not product.is_in_stock %}<span class="product-card__stock">ناموجود</span>{% elif product.track_inventory and product.stock <= product.low_stock_threshold %}<span class="product-card__stock">فقط {{ product.stock|persian_number }} عدد</span>{% endif %}
+  </div>
+</article>

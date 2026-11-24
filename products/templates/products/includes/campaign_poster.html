@@ -1,0 +1,36 @@
+{% load storefront_extras %}
+{% if active_campaign %}
+<section class="campaign-card campaign-card--{{ active_campaign.theme }}" aria-labelledby="campaign-title">
+  <div class="campaign-card__content">
+    {% if active_campaign.badge_text %}<span class="campaign-badge">{{ active_campaign.badge_text }}</span>{% endif %}
+    <h2 id="campaign-title" class="campaign-title">{{ active_campaign.title }}</h2>
+    {% if active_campaign.subtitle %}<p class="campaign-subtitle">{{ active_campaign.subtitle }}</p>{% endif %}
+    {% if active_campaign.discount_percent or active_campaign.discount_code %}
+    <div class="campaign-perks">
+      {% if active_campaign.discount_percent %}<span class="campaign-perk-chip"><span class="perk-highlight">{{ active_campaign.discount_percent|persian_number }}٪</span>تخفیف</span>{% endif %}
+      {% if active_campaign.discount_code %}
+      <button type="button" class="campaign-coupon" data-copy-coupon="{{ active_campaign.discount_code }}">
+        <span>کد:</span><code class="campaign-coupon__code">{{ active_campaign.discount_code }}</code>
+        <span class="campaign-coupon__btn"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg><span class="copy-text">کپی</span></span>
+      </button>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if active_campaign.end_date %}
+    <div class="campaign-countdown" data-countdown="{{ active_campaign.end_date|date:'c' }}">
+      <span>تا پایان:</span>
+      <div class="countdown-boxes" aria-hidden="true">
+        <span class="countdown-box"><span class="countdown-num" data-cd-days>۰</span><span class="countdown-label">روز</span></span>
+        <span class="countdown-box"><span class="countdown-num" data-cd-hours>۰</span><span class="countdown-label">ساعت</span></span>
+        <span class="countdown-box"><span class="countdown-num" data-cd-minutes>۰</span><span class="countdown-label">دقیقه</span></span>
+      </div>
+      <span class="sr-only">{{ active_campaign.end_date|date:'Y/m/d H:i' }}</span>
+    </div>
+    {% endif %}
+    {% if active_campaign.button_link %}<a class="button button--campaign" href="{{ active_campaign.button_link }}">{{ active_campaign.button_text|default:'مشاهده محصولات' }}</a>{% endif %}
+  </div>
+  {% if active_campaign.poster_image %}
+  <div class="campaign-card__visual"><div class="poster-frame"><img class="poster-image" src="{{ active_campaign.poster_image.url }}" alt="" loading="lazy"></div></div>
+  {% endif %}
+</section>
+{% endif %}

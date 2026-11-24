@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block page_title %}ایجاد حساب کاربری{% endblock %}
+{% block page_description %}ثبت‌نام برای مدیریت حساب کاربری و مشاهده سفارش‌ها{% endblock %}
+{% block extra_head %}<meta name="robots" content="noindex,nofollow">{% endblock %}
+{% block content %}<div class="container page-main"><section class="form-panel auth-panel"><h1>ایجاد حساب کاربری</h1><p class="auth-panel__intro">اطلاعات زیر را برای ثبت‌نام و مشاهده سفارش‌های بعدی وارد کنید.</p>{% if form.non_field_errors %}<div class="alert alert-error" role="alert">{{ form.non_field_errors }}</div>{% endif %}<form method="post" action="{% url 'register' %}">{% csrf_token %}{% for field in form %}<div class="form-field"><label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{% if field.help_text %}<div class="help-text">{{ field.help_text|safe }}</div>{% endif %}{{ field.errors }}</div>{% endfor %}<button class="button button--primary button--wide" type="submit">ایجاد حساب کاربری</button></form><p class="auth-panel__footer">قبلاً ثبت‌نام کرده‌اید؟ <a class="text-link" href="{% url 'login' %}">وارد شوید</a></p></section></div>{% endblock %}

@@ -1,0 +1,139 @@
+{% load static %}
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fbf4f2">
+  <title>{% block page_title %}تراست بیوتی{% endblock %}{% if request.resolver_match.url_name != 'root_home' %} | تراست بیوتی{% endif %}</title>
+  <meta name="description" content="{% block page_description %}عطر، مراقبت پوست و مو و آرایش بانوان؛ با قیمت و موجودی شفاف و پرداخت هنگام تحویل.{% endblock %}">
+  {% block robots %}{% if request.GET %}<meta name="robots" content="noindex,follow">{% endif %}{% endblock %}
+  <link rel="icon" href="{% static 'products/images/favicon.svg' %}" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="{% static 'products/css/storefront.css' %}?v=6.1">
+  <link rel="stylesheet" href="{% static 'products/css/beauty-hero.css' %}?v=1.0">
+  <script>document.documentElement.classList.add('js');</script>
+  {% block extra_head %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+  <a class="skip-link" href="#main-content">رفتن به محتوای اصلی</a>
+
+  <aside class="top-announcement" aria-label="شرایط خرید">
+    <div class="container announcement-content">
+      <span class="announcement-item"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg>پرداخت هنگام تحویل سفارش</span>
+      <span class="announcement-item"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>موجودی هر محصول پیش از ثبت سفارش بررسی می‌شود</span>
+    </div>
+  </aside>
+
+  <header class="site-header" data-site-header>
+    <div class="container header-main">
+      <button class="menu-toggle" type="button" aria-label="بازکردن فهرست" aria-expanded="false" aria-controls="mobile-navigation" data-menu-toggle>
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+      <a class="brand" href="{% url 'root_home' %}" aria-label="تراست بیوتی، صفحه اصلی">
+        <span class="brand-mark"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3c.8 3.5 2.7 5.4 6 6-3.3.6-5.2 2.5-6 6-.8-3.5-2.7-5.4-6-6 3.3-.6 5.2-2.5 6-6Z"/><path d="M12 18v3"/></svg></span>
+        <span class="brand-word">تراست بیوتی<small>عطر، مراقبت و آرایش بانوان</small></span>
+      </a>
+      <form class="search-form search-form--desktop" action="{% url 'product_list' %}" method="get" role="search">
+        <label class="sr-only" for="site-search">جستجو در محصولات</label>
+        <input id="site-search" type="search" name="search" value="{{ request.GET.search|default:'' }}" placeholder="دنبال چه می‌گردید؟ سرم، رژ، عطر…" autocomplete="off">
+        <button type="submit" aria-label="جستجو"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button>
+      </form>
+      <div class="header-actions">
+        <a class="header-action header-action--account" href="{% if user.is_authenticated %}{% url 'profile' %}{% else %}{% url 'login' %}{% endif %}">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+          <span class="header-action__text">{% if user.is_authenticated %}حساب من{% else %}ورود{% endif %}</span>
+        </a>
+        <a class="header-action cart-link" href="{% url 'cart_view' %}" aria-label="سبد خرید" data-cart-link>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+          <span class="header-action__text">سبد خرید</span>
+          <span class="cart-count" data-cart-count>{{ cart_items_count|default:0 }}</span>
+        </a>
+      </div>
+    </div>
+    {% with current=request.resolver_match.url_name %}
+    <nav class="container navigation" aria-label="فهرست اصلی">
+      <a href="{% url 'product_list' %}" {% if current == 'product_list' and not request.GET %}aria-current="page"{% endif %}>همه محصولات</a>
+      <a href="{% url 'product_list' %}?sort=featured">منتخب‌ها</a>
+      <a href="{% url 'product_list' %}?sort=newest">تازه‌ها</a>
+      <a href="{% url 'category_list' %}" {% if current == 'category_list' %}aria-current="page"{% endif %}>دسته‌بندی‌ها</a>
+      <a href="{% url 'brand_list' %}" {% if current == 'brand_list' %}aria-current="page"{% endif %}>برندها</a>
+      <a class="navigation__sale" href="{% url 'product_list' %}?discount=1">تخفیف‌دارها</a>
+    </nav>
+    {% endwith %}
+    <div class="container mobile-navigation" id="mobile-navigation" hidden>
+      <form class="search-form mobile-search" action="{% url 'product_list' %}" method="get" role="search">
+        <label class="sr-only" for="mobile-site-search">جستجو در محصولات</label>
+        <input id="mobile-site-search" type="search" name="search" value="{{ request.GET.search|default:'' }}" placeholder="دنبال چه می‌گردید؟">
+        <button type="submit" aria-label="جستجو"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button>
+      </form>
+      <nav aria-label="فهرست موبایل">
+        <a href="{% url 'product_list' %}">همه محصولات</a>
+        <a href="{% url 'product_list' %}?sort=featured">منتخب‌ها</a>
+        <a href="{% url 'category_list' %}">دسته‌بندی‌ها</a>
+        <a href="{% url 'brand_list' %}">برندها</a>
+        <a href="{% url 'product_list' %}?discount=1">تخفیف‌دارها</a>
+        <a href="{% if user.is_authenticated %}{% url 'profile' %}{% else %}{% url 'login' %}{% endif %}">{% if user.is_authenticated %}حساب کاربری{% else %}ورود یا ثبت‌نام{% endif %}</a>
+      </nav>
+    </div>
+  </header>
+
+  {% if messages %}
+  <div class="container messages" aria-live="polite">
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags|default:'info' }}" role="status"><span>{{ message }}</span><button type="button" aria-label="بستن پیام" data-dismiss>×</button></div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <main id="main-content" tabindex="-1">{% block content %}{% endblock %}</main>
+
+  <footer class="site-footer">
+    <div class="container footer-promise">
+      <div><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 15h3"/></svg><p><strong>پرداخت هنگام تحویل</strong><span>مبلغ را وقتی سفارش به دستتان رسید پرداخت کنید.</span></p></div>
+      <div><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><p><strong>سبد قابل ویرایش</strong><span>تا پیش از ثبت، تعداد و اقلام را تغییر دهید.</span></p></div>
+      <div><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 5h16v14H4zM4 9h16M8 13h4"/></svg><p><strong>پیگیری سفارش</strong><span>وضعیت هر سفارش در حساب کاربری شما ثبت است.</span></p></div>
+    </div>
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="{% url 'root_home' %}">
+          <span class="brand-mark"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3c.8 3.5 2.7 5.4 6 6-3.3.6-5.2 2.5-6 6-.8-3.5-2.7-5.4-6-6 3.3-.6 5.2-2.5 6-6Z"/><path d="M12 18v3"/></svg></span>
+          <span class="brand-word">تراست بیوتی<small>عطر، مراقبت و آرایش بانوان</small></span>
+        </a>
+        <p>عطر، مراقبت پوست و مو و آرایش؛ با اطلاعات روشن درباره قیمت، موجودی و ترکیب هر محصول.</p>
+      </div>
+      <div>
+        <h2 class="footer-title">خرید</h2>
+        <ul class="footer-links">
+          <li><a href="{% url 'product_list' %}">همه محصولات</a></li>
+          <li><a href="{% url 'category_list' %}">دسته‌بندی‌ها</a></li>
+          <li><a href="{% url 'brand_list' %}">برندها</a></li>
+          <li><a href="{% url 'product_list' %}?discount=1">تخفیف‌دارها</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-title">حساب و پشتیبانی</h2>
+        <ul class="footer-links">
+          <li><a href="{% url 'cart_view' %}">سبد خرید</a></li>
+          <li><a href="{% url 'order_list' %}">پیگیری سفارش‌ها</a></li>
+          <li><a href="{% url 'about' %}">درباره ما</a></li>
+          <li><a href="{% url 'contact' %}">تماس با ما</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">© {% now "Y" %} تراست بیوتی</div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite" data-toast hidden>
+    <span class="toast__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg></span>
+    <span class="toast__text" data-toast-text></span>
+    <a class="toast__link" href="{% url 'cart_view' %}">مشاهده سبد</a>
+  </div>
+
+  <script src="{% static 'products/js/storefront.js' %}?v=6.1" defer></script>
+  <script src="{% static 'products/js/tilted-grid-hero.js' %}?v=1.0" defer></script>
+  <script src="{% static 'products/js/beauty-hero.js' %}?v=1.0" defer></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

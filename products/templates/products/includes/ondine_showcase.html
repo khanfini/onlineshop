@@ -1,0 +1,147 @@
+{% load static %}
+<section class="container section ondine-section" aria-labelledby="ondine-title" data-reveal>
+  <div class="ondine-header">
+    <div class="ondine-badge">
+      <span class="ondine-badge__dot"></span>
+      <span>ONDINE • تکنولوژی هوشمند زیبایی و سلامت پوست</span>
+    </div>
+    <h2 id="ondine-title" class="ondine-title">آنالیز هوشمند چهره؛ روتین اختصاصی شما</h2>
+    <p class="ondine-subtitle">سیستم هوشمند Ondine با اسکن مشخصات بیومتریک و بافت پوست، دقیق‌ترین پکیج مراقبتی و رایحه سازگار با شما را پیشنهاد می‌دهد.</p>
+  </div>
+
+  <div class="ondine-stage">
+    <!-- Visual Film Frame -->
+    <div class="ondine-film" data-ondine-film>
+      <div class="ondine-film__image-wrap">
+        <img class="ondine-film__img" src="{% static 'products/images/ondine_skincare_portrait.jpg' %}" alt="پرتره آنالیز چهره Ondine" width="800" height="960" loading="lazy">
+        <div class="ondine-scan-laser" aria-hidden="true"></div>
+        <div class="ondine-film__vignette" aria-hidden="true"></div>
+      </div>
+
+      <!-- Tracked Focus Rings that ride her features -->
+      <div class="ondine-focus-ring ondine-focus-ring--cheek" data-ring="cheek">
+        <div class="focus-reticle">
+          <div class="reticle-core"></div>
+          <div class="reticle-ring"></div>
+          <div class="reticle-bracket bracket-tl"></div>
+          <div class="reticle-bracket bracket-br"></div>
+        </div>
+        <div class="focus-tag">
+          <span class="focus-tag__label">گونه و سیب چهره</span>
+          <span class="focus-tag__val">رطوبت ۹۸٪ • هیدراتاسیون کامل</span>
+        </div>
+      </div>
+
+      <div class="ondine-focus-ring ondine-focus-ring--forehead" data-ring="forehead">
+        <div class="focus-reticle">
+          <div class="reticle-core"></div>
+          <div class="reticle-ring"></div>
+          <div class="reticle-bracket bracket-tl"></div>
+          <div class="reticle-bracket bracket-br"></div>
+        </div>
+        <div class="focus-tag">
+          <span class="focus-tag__label">ناحیه پیشانی</span>
+          <span class="focus-tag__val">سد دفاعی مقاوم • درخشش طبیعی</span>
+        </div>
+      </div>
+
+      <div class="ondine-focus-ring ondine-focus-ring--jaw" data-ring="jaw">
+        <div class="focus-reticle">
+          <div class="reticle-core"></div>
+          <div class="reticle-ring"></div>
+          <div class="reticle-bracket bracket-tl"></div>
+          <div class="reticle-bracket bracket-br"></div>
+        </div>
+        <div class="focus-tag">
+          <span class="focus-tag__label">زاویه فک و گردن</span>
+          <span class="focus-tag__val">قوام سلولی عالی • بافت مخملی</span>
+        </div>
+      </div>
+
+      <!-- Pinned Promise that lights up word by word -->
+      <div class="ondine-pinned-promise" aria-label="تعهد زیبایی">
+        <span class="promise-quote-mark" aria-hidden="true">“</span>
+        <div class="promise-text" data-promise-text>
+          <span class="p-word">زیبایی</span>
+          <span class="p-word">اصیل</span>
+          <span class="p-word">شما،</span>
+          <span class="p-word">درخشش</span>
+          <span class="p-word">طبیعی</span>
+          <span class="p-word">و</span>
+          <span class="p-word">مراقبتی</span>
+          <span class="p-word">فراتر</span>
+          <span class="p-word">از</span>
+          <span class="p-word">زمان</span>
+          <span class="p-word">است.</span>
+        </div>
+        <span class="promise-author">— Ondine Beauty Promise</span>
+      </div>
+    </div>
+
+    <!-- Reading Card that counts itself complete -->
+    <div class="ondine-card" data-ondine-card>
+      <div class="ondine-card__header">
+        <div class="reading-status">
+          <span class="reading-status__indicator"></span>
+          <span class="reading-status__text" data-reading-status>در حال بررسی مشخصات بافت چهره...</span>
+        </div>
+        <span class="reading-date">اسکن اختصاصی</span>
+      </div>
+
+      <div class="reading-score-block">
+        <div class="score-circle">
+          <svg class="score-svg" viewBox="0 0 100 100" width="110" height="110">
+            <circle class="score-bg" cx="50" cy="50" r="42"></circle>
+            <circle class="score-fill" cx="50" cy="50" r="42" data-score-circle></circle>
+          </svg>
+          <div class="score-value">
+            <span class="score-number" data-score-num>۰</span>
+            <span class="score-pct">٪</span>
+          </div>
+        </div>
+        <div class="score-info">
+          <span class="score-title">شاخص سلامت و شادابی پوست</span>
+          <p class="score-desc">پوست شما در وضعیت ایده‌آل قرار دارد. استفاده از روتین آبرسانی ملایم و روغن‌های گیاهی شادابی آن را پایدار نگه می‌دارد.</p>
+        </div>
+      </div>
+
+      <div class="reading-metrics">
+        <div class="metric-row">
+          <span class="metric-name">سطح هیدراتاسیون و آبرسانی</span>
+          <div class="metric-bar"><div class="metric-progress" style="--val: 98%;"></div></div>
+          <span class="metric-val">۹۸٪</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-name">یکدستی و لطافت منافذ</span>
+          <div class="metric-bar"><div class="metric-progress" style="--val: 94%;"></div></div>
+          <span class="metric-val">۹۴٪</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-name">سازگاری با رایحه‌های گلی و گرم</span>
+          <div class="metric-bar"><div class="metric-progress" style="--val: 99%;"></div></div>
+          <span class="metric-val">۹۹٪</span>
+        </div>
+      </div>
+
+      <div class="reading-routine">
+        <h4 class="routine-title">محصولات منتخب هماهنگ با تیپ پوستی شما:</h4>
+        <div class="routine-pills">
+          <span class="routine-pill">✨ کرم آب‌رسان عمیق</span>
+          <span class="routine-pill">🌿 روغن آرگان خالص</span>
+          <span class="routine-pill">💎 عطر زنانه لونا</span>
+        </div>
+      </div>
+
+      <div class="reading-actions">
+        <a class="button button--primary button--wide" href="{% url 'product_list' %}">
+          <span>مشاهده و خرید پکیج پیشنهادی</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></svg>
+        </a>
+        <button type="button" class="button button--outline button--wide" data-rescan-btn>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+          <span>اسکن مجدد چهره</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

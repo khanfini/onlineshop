@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load storefront_extras %}
+{% block page_title %}سبد خرید{% endblock %}
+{% block page_description %}مشاهده و ویرایش محصولات سبد خرید{% endblock %}
+{% block content %}
+<div class="container page-main">
+  <nav aria-label="مسیر صفحه"><ol class="breadcrumbs"><li><a href="{% url 'root_home' %}">خانه</a></li><li aria-current="page">سبد خرید</li></ol></nav>
+  <header class="page-intro"><h1>سبد خرید</h1><p>محصولات و تعداد آن‌ها را پیش از ثبت سفارش بررسی کنید.</p></header>
+  {% if cart_items %}<div class="cart-layout">
+    <section class="cart-items" aria-label="محصولات سبد خرید">
+      {% for item in cart_items %}<article class="cart-item">
+        <a href="{{ item.product.get_absolute_url }}" aria-label="مشاهده {{ item.product.name }}">{% if item.product.image %}<img class="cart-item__image" src="{{ item.product.image.url }}" alt="{{ item.product.name }}" width="96" height="112" loading="lazy">{% else %}<span class="cart-item__image"></span>{% endif %}</a>
+        <div><h2><a href="{{ item.product.get_absolute_url }}">{{ item.product.name }}</a></h2><p class="cart-item__meta">قیمت واحد: {{ item.unit_price|toman }} تومان{% if item.variant %}<br>گزینه: {{ item.variant.sku }}{% endif %}</p><div class="cart-item__controls"><form method="post" action="{% url 'update_cart_item' %}">{% csrf_token %}<input type="hidden" name="cart_item_id" value="{{ item.pk }}"><div class="quantity-control" data-quantity-control><button type="button" data-quantity-change="-1" aria-label="کاهش تعداد">−</button><label class="sr-only" for="quantity-{{ item.pk }}">تعداد {{ item.product.name }}</label><input id="quantity-{{ item.pk }}" type="number" name="quantity" value="{{ item.quantity }}" min="1" step="1" inputmode="numeric" required><button type="button" data-quantity-change="1" aria-label="افزایش تعداد">+</button></div><button class="button button--small" type="submit">به‌روزرسانی تعداد</button></form><form method="post" action="{% url 'remove_from_cart' %}">{% csrf_token %}<input type="hidden" name="cart_item_id" value="{{ item.pk }}"><button class="link-danger" type="submit">حذف کالا</button></form></div></div>
+        <p class="cart-item__price">{{ item.subtotal|toman }} <span class="small muted">تومان</span></p>
+      </article>{% endfor %}
+    </section>
+    <aside class="order-summary" aria-labelledby="summary-heading"><h2 id="summary-heading">خلاصه سفارش</h2><div class="summary-row"><span>جمع محصولات</span><span>{{ cart.subtotal|toman }} تومان</span></div>{% if cart.discount %}<div class="summary-row"><span>تخفیف</span><span>−{{ cart.discount|toman }} تومان</span></div>{% endif %}{% if cart.tax %}<div class="summary-row"><span>مالیات</span><span>{{ cart.tax|toman }} تومان</span></div>{% endif %}<div class="summary-row"><span>هزینه ارسال</span><span>{% if cart.shipping %}{{ cart.shipping|toman }} تومان{% else %}صفر تومان{% endif %}</span></div><div class="summary-row summary-row--total"><span>مبلغ قابل پرداخت</span><span>{{ cart.total|toman }} تومان</span></div><div class="summary-actions"><a class="button button--primary button--wide" href="{% url 'checkout' %}">ادامه و ثبت سفارش</a><a class="button button--outline button--wide" href="{% url 'product_list' %}">ادامه خرید</a></div><p class="summary-note">پرداخت هنگام تحویل انجام می‌شود. اطلاعات گیرنده را در مرحله بعد وارد کنید.</p></aside>
+  </div><form method="post" action="{% url 'clear_cart' %}" style="margin-top:1rem">{% csrf_token %}<button class="link-danger" type="submit">خالی کردن سبد خرید</button></form>
+  {% else %}<div class="empty-state"><div class="empty-state__icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 4h2l2 11h11l2-8H6M9 20h.01M17 20h.01"/></svg></div><h2>سبد خرید شما خالی است</h2><p>محصول موردنظر را بررسی کنید و تعداد آن را برای ثبت سفارش انتخاب کنید.</p><a class="button button--primary" href="{% url 'product_list' %}">مشاهده محصولات</a></div>{% endif %}
+</div>
+{% endblock %}

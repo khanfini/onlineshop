@@ -1,0 +1,41 @@
+{% load static %}
+<section class="atelier" aria-labelledby="atelier-title" data-atelier data-reveal>
+  <div class="container atelier__layout">
+    <div class="atelier__copy">
+      <span class="atelier__eyebrow">ویترین این هفته</span>
+      <h2 id="atelier-title">بگذارید محصولات، خودشان حرف بزنند.</h2>
+      <p>از درخشش مراقبت روزانه تا جزئیات انتخاب‌های تازه، مجموعه را ورق بزنید و محصولی را که به روتین شما نزدیک‌تر است پیدا کنید.</p>
+      <div class="atelier__controls" aria-label="کنترل ویترین">
+        <button type="button" class="atelier__control" data-atelier-prev aria-label="تصویر قبلی"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m14 6-6 6 6 6"/></svg></button>
+        <span class="atelier__count"><span data-atelier-current>۱</span> از <span data-atelier-total>۱۲</span></span>
+        <button type="button" class="atelier__control" data-atelier-next aria-label="تصویر بعدی"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m10 6 6 6-6 6"/></svg></button>
+      </div>
+      <a class="button button--primary" href="{% url 'product_list' %}">مشاهده ویترین کامل</a>
+    </div>
+
+    <div class="atelier__stage" tabindex="0" role="region" aria-label="گالری تصاویر محصولات" aria-roledescription="carousel">
+      <div class="atelier__halo" aria-hidden="true"></div>
+      <div class="atelier__card atelier__card--back" aria-hidden="true"><img src="{% get_media_prefix %}products/InShot_20261118_122331578.jpg" alt="" width="480" height="640" loading="lazy"></div>
+      <div class="atelier__card atelier__card--mid" aria-hidden="true"><img src="{% get_media_prefix %}products/InShot_20261118_122136711_4tjZVuL.jpg" alt="" width="480" height="640" loading="lazy"></div>
+      <figure class="atelier__card atelier__card--front">
+        <img src="{% get_media_prefix %}products/argan_elixir_luxury.jpg" alt="اکسیر جوانساز رویال اولئوم ۲۴ عیار" width="700" height="900" data-atelier-image>
+        <figcaption class="atelier__caption" data-atelier-caption>انتخابی برای روتین درخشان‌تر</figcaption>
+      </figure>
+      <div class="atelier__gloss" aria-hidden="true"></div>
+    </div>
+  </div>
+  <div class="container atelier__thumbs" role="tablist" aria-label="انتخاب تصویر محصول">
+    <button type="button" class="atelier__thumb is-active" role="tab" aria-selected="true" data-atelier-slide data-src="{% get_media_prefix %}products/argan_elixir_luxury.jpg" data-alt="اکسیر جوانساز رویال اولئوم ۲۴ عیار" data-caption="انتخابی برای روتین درخشان‌تر"><img src="{% get_media_prefix %}products/argan_elixir_luxury.jpg" alt="" width="90" height="120" loading="lazy"></button>
+    <button type="button" class="atelier__thumb" role="tab" aria-selected="false" data-atelier-slide data-src="{% get_media_prefix %}products/IMG_20250727_074741_230.jpg" data-alt="تصویر محصول زیبایی" data-caption="جزئیاتی که حس خوب روزتان را کامل می‌کند"><img src="{% get_media_prefix %}products/IMG_20250727_074741_230.jpg" alt="" width="90" height="120" loading="lazy"></button>
+    <button type="button" class="atelier__thumb" role="tab" aria-selected="false" data-atelier-slide data-src="{% get_media_prefix %}products/IMG_20261116_212939_570.jpg" data-alt="تصویر محصول" data-caption="برای لحظه‌هایی که انتخاب شخصی‌تر می‌شود"><img src="{% get_media_prefix %}products/IMG_20261116_212939_570.jpg" alt="" width="90" height="120" loading="lazy"></button>
+    <button type="button" class="atelier__thumb" role="tab" aria-selected="false" data-atelier-slide data-src="{% get_media_prefix %}products/InShot_20261118_121901878.jpg" data-alt="تصویر محصول زیبایی" data-caption="زیبایی در جزئیات آرام و دقیق است"><img src="{% get_media_prefix %}products/InShot_20261118_121901878.jpg" alt="" width="90" height="120" loading="lazy"></button>
+    <button type="button" class="atelier__thumb" role="tab" aria-selected="false" data-atelier-slide data-src="{% get_media_prefix %}products/InShot_20261118_121951266.jpg" data-alt="تصویر محصول زیبایی" data-caption="یک مکث کوچک برای رسیدگی به خود"><img src="{% get_media_prefix %}products/InShot_20261118_121951266.jpg" alt="" width="90" height="120" loading="lazy"></button>
+    <button type="button" class="atelier__thumb" role="tab" aria-selected="false" data-atelier-slide data-src="{% get_media_prefix %}products/InShot_20261118_122106750.jpg" data-alt="تصویر محصول زیبایی" data-caption="روتین شما، با انتخاب‌های آگاهانه"><img src="{% get_media_prefix %}products/InShot_20261118_122106750.jpg" alt="" width="90" height="120" loading="lazy"></button>
+    <button type="button" class="atelier__thumb" role="tab" aria-selected="false" data-atelier-slide data-src="{% get_media_prefix %}products/InShot_20261118_122136711_4tjZVuL.jpg" data-alt="تصویر محصول زیبایی" data-caption="بافت، رنگ و احساسی که می‌ماند"><img src="{% get_media_prefix %}products/InShot_20261118_122136711_4tjZVuL.jpg" alt="" width="90" height="120" loading="lazy"></button>
+    <button type="button" class="atelier__thumb" role="tab" aria-selected="false" data-atelier-slide data-src="{% get_media_prefix %}products/InShot_20261118_122236919.jpg" data-alt="تصویر محصول زیبایی" data-caption="برای تجربه‌ای متفاوت از مراقبت"><img src="{% get_media_prefix %}products/InShot_20261118_122236919.jpg" alt="" width="90" height="120" loading="lazy"></button>
+    <button type="button" class="atelier__thumb" role="tab" aria-selected="false" data-atelier-slide data-src="{% get_media_prefix %}products/InShot_20261118_122331578.jpg" data-alt="تصویر محصول زیبایی" data-caption="هر انتخاب، بخشی از امضای شماست"><img src="{% get_media_prefix %}products/InShot_20261118_122331578.jpg" alt="" width="90" height="120" loading="lazy"></button>
+    <button type="button" class="atelier__thumb" role="tab" aria-selected="false" data-atelier-slide data-src="{% get_media_prefix %}products/Screenshot_۲۰۲۵۰۸۱۵_۱۹۲۱۱۶_Instagram.jpg" data-alt="تصویر محصول زیبایی" data-caption="الهام بگیرید، انتخاب کنید، بدرخشید"><img src="{% get_media_prefix %}products/Screenshot_۲۰۲۵۰۸۱۵_۱۹۲۱۱۶_Instagram.jpg" alt="" width="90" height="120" loading="lazy"></button>
+    <button type="button" class="atelier__thumb" role="tab" aria-selected="false" data-atelier-slide data-src="{% get_media_prefix %}products/Screenshot_۲۰۲۶۰۶۰۸_۱۶۱۱۲۱_Instagram.jpg" data-alt="تصویر محصول زیبایی" data-caption="این‌جا برای کشف کردن است"><img src="{% get_media_prefix %}products/Screenshot_۲۰۲۶۰۶۰۸_۱۶۱۱۲۱_Instagram.jpg" alt="" width="90" height="120" loading="lazy"></button>
+    <button type="button" class="atelier__thumb" role="tab" aria-selected="false" data-atelier-slide data-src="{% get_media_prefix %}products/Screenshot_۲۰۲۶۰۶۱۱_۲۱۴۷۲۲_Instagram.jpg" data-alt="تصویر محصول زیبایی" data-caption="انتخابی که با شما هم‌مسیر می‌شود"><img src="{% get_media_prefix %}products/Screenshot_۲۰۲۶۰۶۱۱_۲۱۴۷۲۲_Instagram.jpg" alt="" width="90" height="120" loading="lazy"></button>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}خروج از حساب{% endblock %}
+{% block page_description %}شما از حساب کاربری خود خارج شدید{% endblock %}
+
+{% block content %}
+<div class="empty-state">
+    <h1>از حساب کاربری خارج شدید</h1>
+    <p>برای مشاهده سفارش‌های حساب خود می‌توانید دوباره وارد شوید.</p>
+    <a class="button button--primary" href="{% url 'login' %}">ورود</a>
+    <a class="button" href="{% url 'product_list' %}">بازگشت به فروشگاه</a>
+</div>
+{% endblock %}
